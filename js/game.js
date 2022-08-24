@@ -36,9 +36,14 @@ class Game {
         this.obstacles.forEach(function(obstacle){
             obstacle.draw() 
         })
-        // // that uu collect the coins 
-        // this.obstacles = this.obstacles.filter(function(){
-        //     obstacle.collision(this.player)
-        // })
+        //that uu collect the coins 
+        this.obstacles = this.obstacles.filter(obstacle=> {
+            if (obstacle.collision(this.player) || obstacle.x < 0){
+                return false 
+                // remove coin from array
+            } else {
+                return true 
+            }
+        })
     }
 }
